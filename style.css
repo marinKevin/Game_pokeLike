@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: larger;
+}
+#screen{
+    border:solid #0583F2 10px;
+    display:flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+#top{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+#top-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#down{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+#down-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img{
+    height: 300px;
+    width: 300px;
+}
+
+#pad{
+    border:solid #0583F2 10px;
+    display: grid;
+    border-radius: 10px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    width: 50%;
+    margin: 10px;
+
+}
+button{
+    margin: 10px;
+    border-radius: 10px;
+    background-color: white;
+    width:80%;
+    text-align: center;
+}
+#hpBar{
+    width: 500px;
+    height: 40px;
+    margin: 20px;
+}
+#hpContent{
+    width: 100%;
+    height: 40px;
+    margin: 20px;
+    background-color:green;
+}
+#ecran-acceuil{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+
+/* Cards */
+#template {
+    position: relative;
+    height: 500px;
+    width: 500px;
+
+}
+
+#namepv {
+    position: relative;
+    justify-content: center;
+}
+
+#name {
+    position: absolute;
+    /* text-align: left; */
+    z-index: 999;
+    top: 15px;
+    left: 30px;
+    width: 166px;
+    height: 119px;
+    object-fit: cover;
+}
+
+#pv {
+    position: absolute;
+    z-index: 999;
+    top: 15px;
+    left: 340px;
+    width: 166px;
+    height: 119px;
+    object-fit: cover;
+}
+
+
+#templateimg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#un {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+#deux {
+    position: absolute;
+    z-index: -1;
+    top: 50px;
+    left: 50px;
+    width: 400px;
+    height: 220px;
+    object-fit: cover;
+
+}
+
+#attaqueclassique {
+    position: absolute;
+    z-index: 999;
+    top: 300px;
+    left: 150px;
+    width: 166px;
+    height: 119px;
+    object-fit: cover;
+}
+#attaquespeciale {
+    position: absolute;
+    z-index: 999;
+    top: 350px;
+    left: 150px;
+    width: 166px;
+    height: 119px;
+    object-fit: cover;
+}
+
+#dmg {
+    position: absolute;
+    z-index: 999;
+    top: 0px;
+    left: 200px;
+    width: 166px;
+    height: 119px;
+    object-fit: cover;
+}
+
+#dmg2 {
+    position: absolute;
+    z-index: 999;
+    top: 0px;
+    left: 200px;
+    width: 166px;
+    height: 119px;
+    object-fit: cover;
+}
+
+#histoire {
+    position: absolute;
+    z-index: 999;
+    top: 410px;
+    left: 40px;
+    width: 400px;
+    height: 119px;
+    object-fit: cover;
+}
+
+p {
+    text-align: justify;
+    font-weight: 600;
+    font-style: italic;
+}
+/* #cardText{
+    top: 150px;
+    left: 50px; 
+    z-index: 999;  
+} */
+#btn-card{
+    width: 200px;
+    height: 60px;
+    background-color: #0583F2;
+    font-weight: 800;
+    font-size: larger;
+    color: white;
+    text-align: center;
+
+}

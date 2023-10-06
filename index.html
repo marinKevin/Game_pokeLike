@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jeu</title>
+</head>
+<body id="app">
+    
+    <div v-if="characterSelected == false" id="ecran-acceuil" >
+
+        <div id="template">
+            <div id="namepv">
+                <h1 id="name">{{perso1.name}}</h1>
+                <h1 id="pv">{{perso1.baseStats.pv}}</h1>
+            </div>
+            <div id="templateimg">
+                <img id="un" :src="perso1.cardTemplate" alt="carte">
+                <img id="deux" :src="perso1.img" alt="portrait">
+            </div>
+            <div id="cardText">
+                <div id="attaqueclassique">
+                    <h3 id="classique">{{perso1.abilities[0].name}}</h3>
+                    <h3 id="dmg">{{perso1.abilities[0].value}}</h3>
+                </div>
+                <div id="attaquespeciale">
+                    <h3 id="speciale">{{perso1.abilities[2].name}}</h3>
+                    <h3 id="dmg2">{{perso1.abilities[2].value}}</h3>
+                </div>
+                <div id="histoire">
+                    <p>{{perso1.description}}</p>
+                </div>
+            </div>
+            <button v-on:click="isSelected(perso1)" id="btn-card">CHOOSE</button>
+        </div>
+
+        <div id="template">
+            <div id="namepv">
+                <h1 id="name">{{perso2.name}}</h1>
+                <h1 id="pv">{{perso2.baseStats.pv}}</h1>
+            </div>
+            <div id="templateimg">
+                <img id="un" :src="perso2.cardTemplate" alt="carte">
+                <img id="deux" :src="perso2.img" alt="portrait">
+            </div>
+            <div id="cardText">
+                <div id="attaqueclassique">
+                    <h3 id="classique">{{perso2.abilities[0].name}}</h3>
+                    <h3 id="dmg">{{perso2.abilities[0].value}}</h3>
+                </div>
+                <div id="attaquespeciale">
+                    <h3 id="speciale">{{perso2.abilities[2].name}}</h3>
+                    <h3 id="dmg2">{{perso2.abilities[2].value}}</h3>
+                </div>
+                <div id="histoire">
+                    <p>{{perso2.description}}</p>
+                </div>
+            </div>
+            <button v-on:click="isSelected(perso2)" id="btn-card">CHOOSE</button>
+        </div>
+
+        <div id="template">
+            <div id="namepv">
+                <h1 id="name">{{perso3.name}}</h1>
+                <h1 id="pv">{{perso3.baseStats.pv}}</h1>
+            </div>
+            <div id="templateimg">
+                <img id="un" :src="perso3.cardTemplate" alt="carte">
+                <img id="deux" :src="perso3.img" alt="portrait">
+            </div>
+            <div id="cardText">
+                <div id="attaqueclassique">
+                    <h3 id="classique">{{perso3.abilities[0].name}}</h3>
+                    <h3 id="dmg">{{perso3.abilities[0].value}}</h3>
+                </div>
+                <div id="attaquespeciale">
+                    <h3 id="speciale">{{perso3.abilities[2].name}}</h3>
+                    <h3 id="dmg2">{{perso3.abilities[2].value}}</h3>
+                </div>
+                <div id="histoire">
+                    <p>{{perso3.description}}</p>
+                </div>
+            </div>
+            <button v-on:click="isSelected(perso3)" id="btn-card">CHOOSE</button>
+        </div>
+
+                 
+    </div>
+    <div v-else-if="checkAlive()" id="ecran-combat">
+        <h1>nombre de tour : {{nbrTurn}}</h1>
+        <div id="screen">
+                 <div id="top">
+                    <div id="top-info">
+                        <p>{{adv.nom}}</p>
+                        <div id="hpBar">
+                            <div id="hpContent"  :style="{'width': adv.getPercentPV() + '%'}"></div>
+                        </div>
+                        <p>{{adv.stat.getPV()}}</p>
+                    </div>
+                    <div>
+                        <img src="./img/kaiminus.jpg" alt="">
+                    </div>
+                </div>
+                <div id="down">
+                    <div>
+                        <img :src="hero.img" alt="">
+                    </div>
+                    <div id="down-info">
+                        <p>{{hero.name}}</p>
+                        <div id="hpBar">
+                            <div id="hpContent"  :style="{'width': hero.getPercentPV() + '%'}"></div>
+                        </div>
+                        <p>{{hero.stat.pv}}</p>
+                    </div>
+                </div> 
+            </div>
+            <div id="pad">
+                <button v-on:click="playerTurn('attaque')">Attaque</button>
+                <div>
+                        <button v-if="hero.abilities[2].isOnCd()" >{{hero.abilities[2].getCurrentCd()}}</button>
+                        <button v-else v-on:click="playerTurn('special')">{{hero.abilities[2].name}}</button>
+
+                </div>
+                <button v-on:click="playerTurn('soin')">Soigner</button>
+                <button v-on:click="playerTurn('fuite')">Fuite</button>
+            </div>
+            
+    </div>
+    <div v-else-if="hero.isDead()">
+        <h1>Game Over !</h1>
+    </div>
+    <div v-else-if="adv.isDead()">
+        <h1>Vous avez gagné !</h1>
+    </div>
+    
+
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
